@@ -2,10 +2,14 @@
 #include <string>
 
 int main(){
+
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+
     int c;
     std::string s;
     std::cin >> c;
-    getchar();
+    std::cin.get();
 
     while(c--){
         getline(std::cin, s);
