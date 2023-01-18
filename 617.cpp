@@ -19,12 +19,13 @@ int main(){
             std::cin >> v[j];
         }
 
+        std::string s;
         for(auto j = 0; j < 3; j++){
             for(auto k = 0; k < n; k++)
-            std::cout << v[k][j];
+            s += v[k][j];
         }
 
-        std::cout << "\n";
+        std::cout << s << "\n";
 
     }
 
