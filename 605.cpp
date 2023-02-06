@@ -1,31 +1,25 @@
 #include <iostream>
+#include <string>
 
 int main(){
 
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
 
-    char aux;
-    std::cin >> aux;
+    std::string s;
+    std::getline(std::cin, s);
 
-    while(aux != '.'){
+    while(s  != "."){
         auto i = 0, v = 0;
-        while(aux != '.'){
-            
-            switch(aux){
+        for(auto c : s){
+            switch(c){
                 case 'V':
                     ++v;
                 break;
                 case 'I':
                     ++i;
                 break;
-                case 'A':
-                    ++i;
-                    ++v;
-                break;
             }
-
-            std::cin >> aux;
         }
 
         if (v == i)
@@ -35,7 +29,7 @@ int main(){
         else
             std::cout << "INVIERNO\n";  
 
-        std::cin >> aux;     
+        std::getline(std::cin, s);
     }
 
     return 0;
