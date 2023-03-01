@@ -6,22 +6,32 @@ int main(){
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
 
-    std::string s;
-    std::getline(std::cin, s);
-    while(s != "XXX"){
-        
-        std::string s1, s2;
-        for(auto i = 0; i < s.length(); i++){
+	std::string s;
+	std::getline(std::cin, s);
+	while(s != "XXX"){
 
-            if(isalpha(s[i])){
-                s1.push_back(tolower(s[i]));
-                s2 = (char)tolower(s[i]) + s2;
-            }
-        }
+		int i = 0;
+		int j = s.length() - 1;
+		bool flag = false;
 
-        std::cout << (s1 == s2 ? "SI\n" : "NO\n");
-        std::getline(std::cin, s);
-    }
+		while(i <= j && !flag){
+			
+			while(s[i] == ' ')
+				++i;
 
-    return 0;
+			while(s[j] == ' ')
+				--j;
+
+			if(tolower(s[i]) != tolower(s[j]))
+				flag = true;
+
+			--j;
+			++i;
+		}
+
+		std::cout << (!flag ? "SI\n" : "NO\n");
+		std::getline(std::cin, s);
+	}
+	
+	return 0;
 }
