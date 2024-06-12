@@ -1,36 +1,26 @@
-#include <vector>
 #include <iostream>
+#include <string>
 
-int main(){
+int main() {
 
     std::ios::sync_with_stdio(false);
-	std::cin.tie(false);
+    std::cin.tie(nullptr);
 
-    std::vector<int> digits;
-    int number;
-    int sum;
+    std::string s;
+    std::cin >> s;
+    while (s[0] != '-') {
 
-    while(std::cin >> number && number > -1){
-        digits.clear();
-        sum = 0;
+        int sum = 0;
+        for (size_t i = 0; i < s.length(); i++) {
+            sum += s[i] - '0';
 
-        if(number == 0){
-             std::cout << "0 = 0" << std::endl;
-             continue;
+            std::cout << s[i];
+            if(i != s.length() - 1)
+                std::cout << " + ";
         }
 
-        while(number > 0){
-            int aux = number % 10;
-            sum += aux;
-            digits.push_back(aux);
-            number /= 10;
-        }
-
-        for(int i = digits.size() - 1; i > 0; i--){
-            std::cout << digits[i] << " + ";
-        }
-
-        std::cout << digits[0] << " = " << sum << std::endl;
+        std::cout << " = " << sum << '\n';
+        std::cin >> s;
     }
 
     return 0;
